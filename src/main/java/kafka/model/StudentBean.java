@@ -1,14 +1,11 @@
 package kafka.model;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * To store all the student survey form data
  *
  * @author ambily
  *
  */
-@XmlRootElement
 public class StudentBean {
     private String name;
     private String lastname;
