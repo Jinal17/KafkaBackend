@@ -1,9 +1,0 @@
-kafka/resource/StudentResource.class
-kafka/model/UserRecord.class
-kafka/model/User.class
-kafka/config/KakfaConfiguration.class
-kafka/bean/StudentBean.class
-kafka/bean/StudentRecord.class
-kafka/impl/StudentKafkaImpl.class
-kafka/impl/UserKafkaImpl.class
-kafka/SpringBootKafkaApplication.class

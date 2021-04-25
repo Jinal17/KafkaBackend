@@ -26,6 +26,7 @@ pipeline {
 			}
 			stage("Deploying and executing service on K8"){
 			    steps {
+			      sh 'kubectl create namespace hw4'
 			      sh 'sed "s/tagVersion/${DOCKER_TAG}/g" deployment.yaml > deployment-app.yaml'
 			      sh 'kubectl apply -f deployment-app.yaml'
 			      sh 'kubectl apply -f service.yaml'
