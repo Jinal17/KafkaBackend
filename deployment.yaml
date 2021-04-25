@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-kafka-app
+  namespace: hw4
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-kafka-app
+  template:
+    metadata:
+      labels:
+        app: my-kafka-app
+    spec:
+      containers:
+        - name: my-kafka-app
+          image: jinal0217/hw4_rest_kafka:tagVersion
+          imagePullPolicy: Always
+          ports:
+            - name: web
+              containerPort: 8081
+              protocol: TCP
