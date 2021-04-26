@@ -12,6 +12,7 @@ public class StudentResource {
 
     private static final String TOPIC = "Kafka_Example";
 
+    @CrossOrigin(origins="http://localhost:53812")
     @PostMapping("addStudent")
     public String createSurveyRecord(@RequestBody StudentBean studentBean) {
 
@@ -29,6 +30,7 @@ public class StudentResource {
         return "Published successfully";
     }
 
+    @CrossOrigin(origins="http://localhost:53812")
     @GetMapping("students")
     public List<StudentBean> getAllStudentsSurveyForm() {
         try {
@@ -39,6 +41,7 @@ public class StudentResource {
         }
         return null;
     }
+    @CrossOrigin(origins="http://localhost:53812")
     @GetMapping("get/{name}")
     public StudentBean fetchRecord(@PathVariable("name") final String name) {
         try {
