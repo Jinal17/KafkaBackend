@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:53812")
+//@CrossOrigin(origins = "http://localhost:53812")
 @RestController
 @RequestMapping("kafka/")
 public class StudentResource {
