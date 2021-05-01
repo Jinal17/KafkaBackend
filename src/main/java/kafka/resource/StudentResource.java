@@ -6,23 +6,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:53812")
 @RestController
 @RequestMapping("kafka/")
 public class StudentResource {
 
     private static final String TOPIC = "Kafka_Example";
 
-    @CrossOrigin(origins="http://localhost:53812")
     @PostMapping("addStudent")
     public String createSurveyRecord(@RequestBody StudentBean studentBean) {
 
         try {
             StudentKafkaService service = StudentKafkaService.getInstance();
-            // insert the student into the kafka, if any reason student insert fails it
             service.produce(studentBean);
         } catch (Exception e) {
-            // if the student insertion fails send to the home page with reason for the
-            // error
             System.out.println("exception occurred during insertion " + e.getMessage());
             e.printStackTrace();
             return "Error";
@@ -30,7 +27,6 @@ public class StudentResource {
         return "Published successfully";
     }
 
-    @CrossOrigin(origins="http://localhost:53812")
     @GetMapping("students")
     public List<StudentBean> getAllStudentsSurveyForm() {
         try {
@@ -41,7 +37,6 @@ public class StudentResource {
         }
         return null;
     }
-    @CrossOrigin(origins="http://localhost:53812")
     @GetMapping("get/{name}")
     public StudentBean fetchRecord(@PathVariable("name") final String name) {
         try {

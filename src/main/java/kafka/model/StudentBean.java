@@ -1,11 +1,5 @@
 package kafka.model;
 
-/**
- * To store all the student survey form data
- *
- * @author ambily
- *
- */
 public class StudentBean {
     private String name;
     private String lastname;

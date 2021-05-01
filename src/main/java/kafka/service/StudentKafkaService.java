@@ -36,11 +36,9 @@ public class StudentKafkaService {
      * @return
      */
     public static synchronized StudentKafkaService getInstance() {
-        // if singleton instance is not available create an instance object
         if (null == instance) {
             instance = new StudentKafkaService();
         }
-        // else return the existing instance object
         return instance;
     }
 
@@ -74,11 +72,8 @@ public class StudentKafkaService {
 
     public StudentBean readStudent(String username) throws Exception {
 
-//        if(null!=records) {
         kafkaConsumer.poll(0);
-        // Now there is heartbeat and consumer is "alive"
         kafkaConsumer.seekToBeginning(kafkaConsumer.assignment());
-        // Now consume
         records =  kafkaConsumer.poll(100);
 
         System.out.println("Fetched " + records.count() + " records");
@@ -101,13 +96,8 @@ public class StudentKafkaService {
 
     public List<StudentBean> readStudentIds() throws Exception {
         List<StudentBean> studIDList = new ArrayList<>();
-        //if(!sb.isEmpty()){
-        //sb.clear();
-        //}
         kafkaConsumer.poll(0);
-        // Now there is heartbeat and consumer is "alive"
         kafkaConsumer.seekToBeginning(kafkaConsumer.assignment());
-        // Now consume
         records =  kafkaConsumer.poll(100);
 
         System.out.println("Fetched " + records.count() + " records");
@@ -117,10 +107,8 @@ public class StudentKafkaService {
             System.out.println("record " + record);
             System.out.println("Received: " + record.key() + ":" + record.value());
             StudentRecord studentRecord = (StudentRecord) record.value();
-            //sb.add(temp);
             studIDList.add(studentRecord.convert());
         }
-        //kafkaConsumer.commitSync();
         return studIDList;
     }
 
