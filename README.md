@@ -1,4 +1,5 @@
 This Spring Boot based REST application publishes student survey messages to Kafka cluster hosted on AWS. In addition, these surveys are displayed by consuming messages from the same cluster. Here, Kafka acts as persistence layer. This application interacts with Kafka using their libraries.
+This backend application is containerized using Docker and is deployed to Kubernetes cluster hosted on AWS using Jenkins.
 
 ### Demo link: [here](https://drive.google.com/drive/folders/1hJn0FQd-iG94MyEfQr_lKfLLrp2utjES?usp=sharing)
 #### DOCKER
